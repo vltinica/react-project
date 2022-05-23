@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./nav.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
@@ -15,7 +15,7 @@ const Nav = () => {
       <a href="#about">
         <FaUserCircle />
       </a>
-      <a href="#experience">
+      <a href="#experiance">
         <BsFillBookFill />
       </a>
       <a href="#services">
