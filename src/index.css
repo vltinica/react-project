@@ -38,6 +38,7 @@ body {
   background: var(--color-bg);
   color: var(--color-white);
   line-height: 1.7;
+  letter-spacing: 0.9px;
   background-image: url(../src/assets/bg-texture.png);
 }
 
