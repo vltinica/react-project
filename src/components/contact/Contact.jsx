@@ -1,10 +1,39 @@
 import React from "react";
 import { MdOutlineMail } from "react-icons/md";
 import { SiMessenger } from "react-icons/si";
+import { useRef } from "react";
+import emailjs from "emailjs-com";
 
 import "./contact.css";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_rmwrtn8",
+        "template_6vc9rtu",
+        form.current,
+        "aMDhHQR-7QADjstKB"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
+
+  const f1 = () => {
+    alert("You sent a message!");
+  };
+
   return (
     <section id="contact">
       <h5>Get IN Touch</h5>
@@ -31,7 +60,7 @@ const Contact = () => {
           </article>
         </div>
         {/* END OF CONTACT OPTIONS */}
-        <form action="">
+        <form ref={form} onSubmit={sendEmail}>
           <input
             type="text"
             name="name"
@@ -46,7 +75,7 @@ const Contact = () => {
             placeholder="Your Message"
             required
           ></textarea>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={f1}>
             Send Message
           </button>
         </form>
